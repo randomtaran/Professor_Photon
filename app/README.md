@@ -1,9 +1,16 @@
-# Professor_Photon
+# prof_photon2
 
-cool physics fun app
+A new Flutter project.
 
-## Screenshots
+## Getting Started
 
-<img src="https://user-images.githubusercontent.com/79708471/181995306-c832c52a-f217-46bd-b5fe-d6e9def62873.png" width="400">
-<img src="https://user-images.githubusercontent.com/79708471/181995308-62455bc5-a60e-4fc6-92ad-ddf4c4c3427e.png" width="400">
-<img src="https://user-images.githubusercontent.com/79708471/181995309-2e2d0d03-fedc-4166-8a2e-1b58372dedb6.png" width="400">
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
