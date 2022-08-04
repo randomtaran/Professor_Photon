@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const connectDB = (url) => {
   return mongoose
@@ -7,4 +7,4 @@ const connectDB = (url) => {
     .catch(() => console.log("Failed"));
 };
 
-export default connectDB;
+module.exports = connectDB;
