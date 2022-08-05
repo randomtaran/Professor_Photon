@@ -18,7 +18,7 @@ app.use("/", googleRouter);
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);
-    getCredentials();
+    // getCredentials();
     app.listen(port, () => console.log(`server is listening on the port ${port}...`));
   } catch (error) {
     console.log(error);

@@ -5,7 +5,7 @@ const readline = require("readline");
 
 const SCOPES = ["https://www.googleapis.com/auth/drive.metadata.readonly"];
 
-const getCredentials = () => {
+const getCredentials = async () => {
   // fs.readdir("./", (err, files) => {
   //   files.forEach((file) => {
   //     console.log(file);
@@ -21,7 +21,18 @@ const getCredentials = () => {
   try {
     const file = fs.readFileSync("./credentials.json");
     const object = JSON.parse(file);
-    authorize(object, listFiles);
+
+    const { client_secret, client_id, redirect_uris } = object.web;
+    const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[1]);
+
+    // console.log(client_id, client_secret, redirect_uris[0]);
+    // const drive = oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+
+    fs.readFile("./token.json", async (err, token) => {
+      if (err) return getAccessToken(oAuth2Client, callback);
+      oAuth2Client.setCredentials(JSON.parse(token));
+      return await listFiles(oAuth2Client);
+    });
     // console.log(object);
   } catch (error) {
     console.log(error);
@@ -32,7 +43,7 @@ const listFiles = async (auth) => {
   const drive = google.drive({ version: "v3", auth });
   try {
     const fileList = await drive.files.list({ q: 'name = "cnns"' });
-    console.log("file", fileList.data);
+    console.log("list file working", fileList.data);
     return fileList;
   } catch (err) {
     console.log(err);
